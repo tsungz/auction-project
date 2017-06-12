@@ -97,7 +97,7 @@ form input:hover {
 form input:focus {
   background-color: white;
   width: 300px;
-  color: #fbff8e;
+  color: black;
 }
 form button {
   -webkit-appearance: none;

@@ -25,6 +25,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!--    <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>-->
     <?= $this->Html->css('custom.css') ?>
+    <?= $this->Html->css('navbar.css') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->script('jquery.min.js') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>

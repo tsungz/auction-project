@@ -47,7 +47,7 @@ class BidUsersController extends AppController
                 'username' => $data['username'],
                 'password' => md5($data['password'])])->hydrate(false)->first();
             if ($user) {
-                $this->Flash->success(__('Login successfully'));
+                $this->Flash->success(__('Hello'));
                 $this->request->session()->write('userData', $user);
                 return $this->redirect(['controller' => $controller, 'action' => $action]);
             }
@@ -63,7 +63,7 @@ class BidUsersController extends AppController
     public function logout()
     {
         $this->request->session()->destroy();
-        $this->Flash->success(__('Logout successfully'));
+        $this->Flash->success(__('See ya!!!'));
         $controller = Configure::read('Common.Basic.Ctl.LogoutSuccess');
         $action = Configure::read('Common.Basic.Action.Login');
         return $this->redirect(['controller' => $controller, 'action' => $action]);
