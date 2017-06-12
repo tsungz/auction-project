@@ -1,0 +1,12 @@
+php composer.phar create-project --prefer-dist cakephp/app bidpj
+
+composer self-update && composer create-project --prefer-dist cakephp/app bidpj
+
+
+cake bake all bid_users
+
+cake bake all bid_objects
+
+cake bake all bid_topics
+
+cake bake all bid_sponsors

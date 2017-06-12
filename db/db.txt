@@ -1,0 +1,54 @@
+create database bidpj;
+use bidpj;
+
+CREATE TABLE bid_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(25) NOT NULL,
+    phone INT(20) NOT NULL,
+    address TEXT NOT NULL,
+    districts VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    rolls TINYINT(2) NOT NULL,
+    created DATETIME,
+    modified DATETIME,
+    UNIQUE KEY (username),
+    UNIQUE KEY (email)
+);
+
+CREATE TABLE bid_objects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    details TEXT NOT NULL,
+    images_a VARCHAR(255) NOT NULL,
+    images_b VARCHAR(255) NOT NULL,
+    images_c VARCHAR(255) NOT NULL,
+    step_call INT NOT NULL,
+    status TINYINT(2),
+    origin VARCHAR(50) NOT NULL,
+    brand VARCHAR(50),
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    created DATETIME,
+    modified DATETIME,
+    FOREIGN KEY user_key (user_id) REFERENCES bid_users(id)
+);
+
+CREATE TABLE bid_topics (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    obj_id INT NOT NULL,
+    user_id INT NOT NULL,
+    declares INT NOT NULL,
+    created DATETIME,
+    FOREIGN KEY user_key (user_id) REFERENCES bid_users(id),
+    FOREIGN KEY obj_key (obj_id) REFERENCES bid_objects(id)
+);
+
+CREATE TABLE bid_sponsors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    details TEXT,
+    created DATETIME,
+    UNIQUE KEY (name),
+);
